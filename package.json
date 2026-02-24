@@ -7,8 +7,11 @@
     "webpack-dev-server": "^5.2.3",
     "webpack-merge": "^6.0.1"
   },
-"scripts": {
+  "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0"
   }
 }
