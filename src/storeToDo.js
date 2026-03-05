@@ -1,9 +1,6 @@
 export {storage, storeToDoList}
 
-const storage = [{project: 'home', toDoList:[]}, ]
-
-// store to do list tanpa project
-// store to do list dengan project 
+const storage = [{project: 'home', toDoList:[]}, {project: 'dummy', toDoList:[]}]
 
 function storeToDoList(toDo) {
     if (!toDo.project) {
@@ -11,7 +8,6 @@ function storeToDoList(toDo) {
     }
 
     const projectList = storage.find(element => element.project === toDo.project);
-    console.log(projectList)
 
     if (projectList) {
         projectList.toDoList.push(toDo);
