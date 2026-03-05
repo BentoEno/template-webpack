@@ -1,6 +1,6 @@
-export {toDoList}
+import { storeToDoList } from "./index.js";
 
-class toDoList {
+export class toDoList {
     status = false;
     notes;
     id = crypto.randomUUID();
@@ -10,6 +10,8 @@ class toDoList {
         this.project = project;
         this.dueDate = dueDate;
         this.priority = priority;
+
+        storeToDoList(this);
     };
 }
 
