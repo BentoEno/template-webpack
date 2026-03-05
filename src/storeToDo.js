@@ -1,6 +1,6 @@
 export {storage, storeToDoList}
 
-const storage = [{project: 'home', toDoList:[]}, {project: 'dummy', toDoList:[]}]
+const storage = [{project: 'home', toDoList:[]}]
 
 function storeToDoList(toDo) {
     if (!toDo.project) {
