@@ -7,11 +7,11 @@ export class toDoList {
     id = crypto.randomUUID();
     dueDateDistance;
 
-    constructor(title = 'to do list', project, dueDate = '27 april 2001', priority = 'low') {
+    constructor(title = 'to do list', project, dueDate = '27 april 2001', flagged = false) {
         this.title = title;
         this.project = project;
         this.dueDate = dueDate;
-        this.priority = priority;
+        this.flagged = flagged;
         this.getRelativeDistance();
 
         storeToDoList(this);
