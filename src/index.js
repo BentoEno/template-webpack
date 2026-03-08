@@ -5,30 +5,24 @@ import { storage, storeToDoList, assignToProject } from './storeToDo.js';
 import { removeToDoList } from './removeToDo.js';
 import { createProject } from "./createProject.js";
 import { setDate } from "./setDate.js";
-import { renderSidebar } from './domSidebar.js';
+import { sidebar } from './domSidebar.js';
+import { renderList } from "./domList.js";
 
-export { toDoList, storage, storeToDoList, main, createProject}
-
-const main = document.querySelector('.mainContent');
+export { toDoList, storage, storeToDoList, createProject, sidebar}
 
 const todo1 = new toDoList('ini tugas');
 createProject('Dummy');
 
-const todo2 = new toDoList('coba cobaaaa', 'Dummy');
+const todo2 = new toDoList('ride a bike to mountain', 'Inbox', '26 maret 2026', true);
 const todo3 = new toDoList('ketiga');
-setDate(todo3, '27 april 2026');
 
-assignToProject(todo3, 'Dummy');
+assignToProject(todo3);
 
 removeToDoList(todo1);
 
 console.log(storage);
 
-const sidebar = renderSidebar(main);
-
-sidebar.addPrjBtn.addEventListener('click', function () {
-        console.log('this work')
-    })
+renderList('Inbox');
 
 
 

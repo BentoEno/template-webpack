@@ -1,8 +1,9 @@
 import { storage, createProject } from "./index.js";
 
-export { renderSidebar }
+export { sidebar }
 
-function renderSidebar(main) {
+const sidebar = (function renderSidebar() {
+    const main = document.querySelector('.mainContent');
     const body = document.querySelector('body');
     const sidebar = document.createElement('div');
 
@@ -117,7 +118,7 @@ function renderSidebar(main) {
     });
 
     return { addPrjBtn };
-}
+})();
 // Overview render function
 
 // Project list render function

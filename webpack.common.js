@@ -1,6 +1,5 @@
 import path from 'node:path';
 import htmlWebpackPlugin from 'html-webpack-plugin';
-import test from 'node:test';
 
 export default {
     entry: {

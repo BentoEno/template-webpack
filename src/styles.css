@@ -153,3 +153,38 @@ h1 {
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
 }
+
+/* Content */
+
+.contentContainer {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    padding: 1rem;
+}
+
+.contentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-primary);
+}
+
+.contentHeader button {
+    margin-right: 5%;
+    padding: .5rem 1rem;
+    border-radius: 16px;
+    background-color: var(--accent-yellow);
+}
+
+/* Individual to do list */
+.toDo {
+    background-color: #22C55E;
+}
+
+.prioritySign svg {
+    height: 50px;
+}
+
+.prioritySign.priority svg {
+    fill: #EF4444;
+}
