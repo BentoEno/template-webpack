@@ -1,4 +1,4 @@
-import { storage, createProject } from "./index.js";
+import { storage, createProject, renderList } from "./index.js";
 
 export { sidebar }
 
@@ -14,36 +14,20 @@ const sidebar = (function renderSidebar() {
     const flaggedGroup = document.createElement('div');
     const completedGroup = document.createElement('div');
     const scheduledGroup = document.createElement('div');
-    const todayLabel = document.createElement('p');
-    const allLabel = document.createElement('p');
-    const flaggedLabel = document.createElement('p');
-    const completedLabel = document.createElement('p');
-    const scheduledLabel = document.createElement('p');
-    const todayCount = document.createElement('p');
-    const allCount = document.createElement('p');
-    const flaggedCount = document.createElement('p');
-    const completedCount = document.createElement('p');
-    const scheduledCount = document.createElement('p');
 
-    todayLabel.textContent = 'Today';
-    allLabel.textContent = 'All';
-    flaggedLabel.textContent = 'Flagged';
-    completedLabel.textContent = 'Completed';
-    scheduledLabel.textContent = 'Scheduled';
+    todayGroup.textContent = 'Today';
+    allGroup.textContent = 'All';
+    flaggedGroup.textContent = 'Flagged';
+    completedGroup.textContent = 'Completed';
+    scheduledGroup.textContent = 'Scheduled';
 
     sidebar.classList.add('sidebar');
     overview.classList.add('overview');
-    todayCount.classList.add('count');
-    allCount.classList.add('count');
-    flaggedCount.classList.add('count');
-    completedCount.classList.add('count');
-    scheduledCount.classList.add('count');
-
-    todayGroup.append(todayLabel, todayCount);
-    allGroup.append(allLabel, allCount);
-    flaggedGroup.append(flaggedLabel, flaggedCount);
-    completedGroup.append(completedLabel, completedCount);
-    scheduledGroup.append(scheduledLabel, scheduledCount);
+    todayGroup.classList.add('todayGroup');
+    allGroup.classList.add('allGroup');
+    flaggedGroup.classList.add('flaggedGroup');
+    completedGroup.classList.add('completedGroup');
+    scheduledGroup.classList.add('scheduledGroup');
 
     main.appendChild(sidebar);
     sidebar.appendChild(overview);
@@ -117,8 +101,8 @@ const sidebar = (function renderSidebar() {
         dialogProject.close();
     });
 
-    return { addPrjBtn };
+    const getProjectDoms = function() { return document.querySelectorAll('.project')};
+    
+    return { projectContainer, getProjectDoms };
 })();
-// Overview render function
 
-// Project list render function

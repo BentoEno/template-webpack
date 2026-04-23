@@ -30,6 +30,13 @@ export default {
                 test: /\.(woff|woff2|ttf|otf)$/i,
                 type: 'asset/resource',
             },
+            // {
+            //     test: /\.js$/,          // process all .js files
+            //     exclude: /node_modules/,
+            //         use: {
+            //         loader: 'babel-loader' // needs: npm install babel-loader @babel/core @babel/preset-env
+            //         }
+            // }
         ],
     },
 };
