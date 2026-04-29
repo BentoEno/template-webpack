@@ -7,7 +7,7 @@ export class toDoList {
     id = crypto.randomUUID();
     dueDateDistance;
 
-    constructor(title = 'to do list', project, dueDate = '27 April 2001', priority = false, notes) {
+    constructor(title = 'to do list', project, dueDate, priority = false, notes) {
         this.title = title;
         this.project = project;
         this.dueDate = dueDate;
@@ -19,7 +19,7 @@ export class toDoList {
     };
 
     getRelativeDistance() {
-        this.dueDateDistance = formatDistanceToNow(this.dueDate, {addSuffix: true});
+        this.dueDateDistance = this.dueDate ? formatDistanceToNow(this.dueDate, {addSuffix: true}) : '';
     }
 }
 

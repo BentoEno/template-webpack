@@ -84,7 +84,8 @@ h1 {
 }
 
 .overview div {
-    background-color: var(--accent-yellow);
+    background-color: var(--text-primary);
+    color: var(--text-secondary);
     flex: 1 0 calc(40% - 0.70rem);
     height: 80px;
     border-radius: 12px;
@@ -224,6 +225,18 @@ h1 {
     color: var(--text-secondary);
 }
 
+.uniqueID {
+    display: none;
+}
+
+.editSign, .deleteSign {
+    fill: var(--text-secondary);
+    display: none;
+}
+
+.editSign:hover, .deleteSign:hover {
+    fill: var(--accent-yellow);
+}
 /* Add New List Dialog */
 
 #dialogToDo {
@@ -261,9 +274,11 @@ h1 {
 
 /* Project Based List */
 
-.activeProject {
+.activeProject, .overview .activeProject {
     background-color: var(--accent-yellow);
     color: var(--bg-app);
     font-weight: bold;
 }
+
+
 
