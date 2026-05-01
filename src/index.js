@@ -8,10 +8,10 @@ import { setDate } from "./setDate.js";
 import { sidebar } from './domSidebar.js';
 import * as domList from './domPrjBasedList.js';
 import { dialogDetailList } from './domDetailList.js';
-import { removeActiveProject } from "./domPrjBasedList.js";
+import { removeActiveProject, renderToDosPrj } from "./domPrjBasedList.js";
 import { populateStorage } from './localStorage.js';
 
-export { toDoList, storage, storeToDoList, createProject, sidebar, removeToDoList, dialogDetailList, populateStorage, changeProject, removeActiveProject}
+export { toDoList, storage, storeToDoList, createProject, sidebar, removeToDoList, dialogDetailList, populateStorage, changeProject, removeActiveProject, renderToDosPrj}
 
 
 

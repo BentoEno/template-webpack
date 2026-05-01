@@ -20,6 +20,5 @@ export class toDoList {
 
     getRelativeDistance() {
         this.dueDateDistance = this.dueDate ? formatDistanceToNow(this.dueDate, {addSuffix: true}) : '';
-    }
+    };
 }
-

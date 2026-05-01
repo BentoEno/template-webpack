@@ -2,7 +2,7 @@
 import { isToday } from 'date-fns';
 import { sidebar, storage, toDoList, detailList, removeToDoList, dialogDetailList, populateStorage, getStorage } from './index.js'
 
-export { renderToDo, removeActiveProject }
+export { renderToDo, removeActiveProject, renderToDosPrj }
 
 const body = document.querySelector('body');
 const main = document.querySelector('.mainContent');
@@ -16,6 +16,7 @@ container.classList.add('contentContainer');
 toDoHeading.classList.add('contentHeader');
 headingText.textContent = 'My To Do List';
 addList.textContent = '+ New To Do List';
+toDoContainer.classList.add('toDoContainer')
 
 toDoHeading.append(headingText, addList);
 container.append(toDoHeading, toDoContainer);
