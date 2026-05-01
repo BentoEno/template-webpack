@@ -1,4 +1,4 @@
-import { storage, createProject, renderList } from "./index.js";
+import { storage, createProject, renderList} from "./index.js";
 
 export { sidebar }
 

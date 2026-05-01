@@ -120,14 +120,14 @@ h1 {
 
 /* Dialog */
 
-#dialogProject, #dialogToDo {
+#dialogProject, #dialogToDo, #detailDialog {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-#dialogProject form{
+#dialogProject form, #editForm{
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -278,6 +278,56 @@ h1 {
     background-color: var(--accent-yellow);
     color: var(--bg-app);
     font-weight: bold;
+}
+
+/* edit to do dialog */
+
+#detailDialog {
+    padding: 2rem;
+}
+
+#editForm {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+#editForm #title {
+    font-weight: 800;
+    font-size: 1.25rem;
+}
+
+#editForm > * {
+    padding: 0 1ch;
+}
+
+#toDoBtn {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+}
+
+#toDoBtn {
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+#toDoBtn button {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: var(--bg-app);
+    color: var(--accent-yellow);
+}
+
+#toDoBtn button:hover {
+    background-color: var(--accent-yellow);
+    color: var(--bg-app);
 }
 
 

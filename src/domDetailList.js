@@ -1,5 +1,5 @@
 
-import { storage } from "./index.js";
+import { changeProject, storage, removeActiveProject } from "./index.js";
 
 const body = document.querySelector('body');
 
@@ -101,6 +101,7 @@ export function dialogDetailList(toDoCard, toDo) {
         event.preventDefault();
         toDo.title = titleInput.value;
         toDo.notes = notesInput.value;
+        const oldProjectName = toDo.project;
         toDo.project = projectInput.value;
         toDo.dueDate = dueDateInput.value;
         toDo.priority = priorityInput.checked ? true : false;
@@ -113,6 +114,14 @@ export function dialogDetailList(toDoCard, toDo) {
         toDoTitle.textContent = toDo.title;
         dueDate.textContent = toDo.dueDateDistance;
         prioritySign.hidden = toDo.priority === true ? false : true;
+        changeProject(toDo, oldProjectName);
+        removeActiveProject();
+        const projectAll = document.querySelectorAll('.project');
+        for (const project of projectAll) {
+            if (projectInput.value === project.textContent) {
+                project.classList.add('activeProject')
+            }
+        };
         console.log(toDo);
         console.log(storage);      
         detailDialog.close();

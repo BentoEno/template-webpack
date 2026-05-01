@@ -1,6 +1,20 @@
-export {storage, storeToDoList, assignToProject}
+export { storage, storeToDoList, assignToProject, changeProject}
 
-const storage = [{project: 'Inbox', toDoList:[]}]
+let storage = [{project: 'Inbox', toDoList:[]}];
+
+// function getStorage() {
+//     const saved = localStorage.getItem('localToDoLists');
+    
+//     if (saved) {
+//         storage = JSON.parse(saved);
+//     } else {
+//         return
+//     }
+//     console.log(JSON.parse(saved))
+//     // if no saved data, storage keeps the default Inbox
+// }
+
+// getStorage();
 
 function storeToDoList(toDo) {
     if (!toDo.project) {
@@ -16,6 +30,15 @@ function storeToDoList(toDo) {
         toDo.project = 'Inbox';
     }
 };
+
+function changeProject(toDo, oldProject) {
+    const projectList = storage.find(element => element.project === oldProject);
+    const currentIndex = projectList.toDoList.indexOf(toDo);
+    projectList.toDoList.splice(currentIndex, 1);
+
+    storeToDoList(toDo);
+}
+
 
 function assignToProject(toDo, projectName) {
     const oldProject = storage.find(element => element.project === toDo.project);

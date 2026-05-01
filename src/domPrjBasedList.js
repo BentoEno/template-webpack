@@ -1,8 +1,8 @@
 
 import { isToday } from 'date-fns';
-import { sidebar, storage, toDoList, detailList, removeToDoList, dialogDetailList } from './index.js'
+import { sidebar, storage, toDoList, detailList, removeToDoList, dialogDetailList, populateStorage, getStorage } from './index.js'
 
-export { renderToDo }
+export { renderToDo, removeActiveProject }
 
 const body = document.querySelector('body');
 const main = document.querySelector('.mainContent');
@@ -106,12 +106,14 @@ function renderToDo(toDo) {
     // Delete Button
     deleteSign.addEventListener('click', () => {
         toDoCard.remove();
-        removeToDoList(toDo)
+        removeToDoList(toDo);
+        populateStorage(storage);
     });
 
     // Edit Button
     editSign.addEventListener('click', () => {
         dialogDetailList(toDoCard, toDo);
+        populateStorage(storage);
     })
 }
 
@@ -257,6 +259,7 @@ const toDoDialog = (function () {
 
         toDoForm.reset();
         dialogToDo.close();
+        populateStorage(storage);
     })
 })();
 
