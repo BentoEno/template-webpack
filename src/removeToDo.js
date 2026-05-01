@@ -11,3 +11,4 @@ export function removeToDoList(toDo) {
 
     obj.toDoList.splice(removedIndex, 1);
 }
+

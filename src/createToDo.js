@@ -12,13 +12,14 @@ export class toDoList {
         this.project = project;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.getRelativeDistance();
         this.notes = notes;
 
+        getRelativeDistance(this);
         storeToDoList(this);
     };
+}
 
-    getRelativeDistance() {
-        this.dueDateDistance = this.dueDate ? formatDistanceToNow(this.dueDate, {addSuffix: true}) : '';
-    };
+function getRelativeDistance(toDo) {
+    return toDo.dueDateDistance = toDo.dueDate ? formatDistanceToNow(toDo.dueDate, {addSuffix: true}) : '';
+    console.log(toDo.dueDateDistance)
 }

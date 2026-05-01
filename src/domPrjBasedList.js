@@ -131,7 +131,7 @@ sidebar.projectContainer.addEventListener('click', (event) => {
     if (!activeProject.classList.contains('project')) return;
 
     toDoContainer.innerHTML = '';
-    renderToDosPrj(activeProject.textContent);
+    renderToDosPrj(activeProject.value);
     removeActiveProject();
     activeProject.classList.add('activeProject');
 })

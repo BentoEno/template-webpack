@@ -330,5 +330,18 @@ h1 {
     color: var(--bg-app);
 }
 
+.project {
+    display: flex;
+    justify-content: space-between;
+}
+
+.deleteProject {
+    fill: var(--status-red);
+    display: none;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+
 
 

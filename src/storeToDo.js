@@ -2,19 +2,19 @@ export { storage, storeToDoList, assignToProject, changeProject}
 
 let storage = [{project: 'Inbox', toDoList:[]}];
 
-// function getStorage() {
-//     const saved = localStorage.getItem('localToDoLists');
+function getStorage() {
+    const saved = localStorage.getItem('localToDoLists');
     
-//     if (saved) {
-//         storage = JSON.parse(saved);
-//     } else {
-//         return
-//     }
-//     console.log(JSON.parse(saved))
-//     // if no saved data, storage keeps the default Inbox
-// }
+    if (saved) {
+        storage = JSON.parse(saved);
+    } else {
+        return
+    }
+    console.log(JSON.parse(saved))
+    // if no saved data, storage keeps the default Inbox
+}
 
-// getStorage();
+getStorage();
 
 function storeToDoList(toDo) {
     if (!toDo.project) {

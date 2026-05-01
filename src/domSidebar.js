@@ -1,4 +1,4 @@
-import { storage, createProject, renderList} from "./index.js";
+import { storage, createProject, renderList, populateStorage} from "./index.js";
 
 export { sidebar }
 
@@ -39,17 +39,13 @@ const sidebar = (function renderSidebar() {
     const addPrjBtn = document.createElement('button');
 
     projectContainer.classList.add('projectList');
+    const projectHandling = document.createElement('div');
     projectHeading.textContent = 'My Project';
     addPrjBtn.textContent = 'Add Project +';
 
-    projectContainer.append(projectHeading, addPrjBtn);
+    projectContainer.append(projectHeading, addPrjBtn, projectHandling);
 
-    for (const element of storage) {
-        const project = document.createElement('div');
-        project.textContent = element.project;
-        project.classList.add('project');
-        projectContainer.appendChild(project);
-    }
+    displayProject(projectHandling)
 
     sidebar.appendChild(projectContainer);
 
@@ -92,17 +88,49 @@ const sidebar = (function renderSidebar() {
         }
         createProject(titleValue)
 
-        const project = document.createElement('div');
-        project.textContent = titleValue;
-        project.classList.add('project');
-        projectContainer.appendChild(project);
+        displayProject(projectHandling);
         
+        populateStorage(storage);
         projectForm.reset();
         dialogProject.close();
     });
 
     const getProjectDoms = function() { return document.querySelectorAll('.project')};
     
-    return { projectContainer, getProjectDoms };
+    return { projectContainer };
 })();
 
+function displayProject(projectContainer) {
+    projectContainer.innerHTML = '';
+    for (const element of storage) {
+        const project = document.createElement('div');
+        const deleteProject = document.createElement('div');
+        const projectName = document.createElement('h3');
+        deleteProject.innerHTML = '<div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>delete</title><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" /></svg></div>';
+        deleteProject.classList.add('deleteProject');
+        projectName.textContent = element.project;
+        project.value = element.project;
+        project.classList.add('project');
+        project.append(projectName, deleteProject);
+        projectContainer.appendChild(project);
+
+        project.addEventListener('mouseenter', () => {
+            deleteProject.style.display = 'block';
+        })
+
+        project.addEventListener('mouseleave', () => {
+            deleteProject.style.display = 'none';
+        })
+
+        deleteProject.addEventListener('click', event => {
+            if (project.value === 'Inbox') {
+                alert('Do Not Delete Inbox');
+                return
+            }
+            const removedProjectIndex = storage.findIndex(obj => obj.project === element.project);
+            storage.splice(removedProjectIndex, 1);
+            populateStorage(storage);
+            project.remove();
+        })
+    }
+}
