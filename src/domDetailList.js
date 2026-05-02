@@ -1,5 +1,5 @@
 
-import { changeProject, storage, removeActiveProject, renderToDosPrj } from "./index.js";
+import { changeProject, storage, removeActiveProject, renderToDosPrj, getRelativeDistance } from "./index.js";
 
 const body = document.querySelector('body');
 
@@ -105,7 +105,7 @@ export function dialogDetailList(toDoCard, toDo) {
         toDo.project = projectInput.value;
         toDo.dueDate = dueDateInput.value;
         toDo.priority = priorityInput.checked ? true : false;
-        toDo.getRelativeDistance();
+        getRelativeDistance(toDo);
 
         console.log(toDo.dueDateDistance);
         const toDoTitle = toDoCard.querySelector('h3');
@@ -119,7 +119,7 @@ export function dialogDetailList(toDoCard, toDo) {
         removeActiveProject();
         const projectAll = document.querySelectorAll('.project');
         for (const project of projectAll) {
-            if (projectInput.value === project.textContent) {
+            if (projectInput.value === project.value) {
                 project.classList.add('activeProject')
             }
         };

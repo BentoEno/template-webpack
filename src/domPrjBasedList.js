@@ -253,7 +253,7 @@ const toDoDialog = (function () {
         removeActiveProject();
         const projectAll = document.querySelectorAll('.project');
         for (const project of projectAll) {
-            if (projectInput.value === project.textContent) {
+            if (projectInput.value === project.value) {
                 project.classList.add('activeProject')
             }
         }

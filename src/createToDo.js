@@ -19,7 +19,7 @@ export class toDoList {
     };
 }
 
-function getRelativeDistance(toDo) {
+export function getRelativeDistance(toDo) {
     return toDo.dueDateDistance = toDo.dueDate ? formatDistanceToNow(toDo.dueDate, {addSuffix: true}) : '';
     console.log(toDo.dueDateDistance)
 }
